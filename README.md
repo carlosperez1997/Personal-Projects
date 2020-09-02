@@ -10,7 +10,7 @@ Using Python, I have developed the following projects:
       In this project, lists (forming matrices) and functions were implemented purposefully.
       
     - Capitalista_Card_Game
-      This card game is played with a Spanish deck. The whole game is run using the terminal, where you can select the number of players and the deck is dealt randomly. 
+      This card game is played with a Spanish deck. The whole game is run using the terminal, where you can select the number of players and the deck is dealt      randomly. 
       The rules of the game are the following:
         - Numbers ordered from smaller to bigger:
             3 - 4 - 5 - 6 - 7 - 8 - 9 - 10 - 11 - 12 - 1 - 2
@@ -21,8 +21,10 @@ Using Python, I have developed the following projects:
         - If a player sets the same number of a card as the one in the table, the following player will be skipped but they will continue playing in this round
         - If a player cannot play or does not want to play, the player will no longer be playing in this round
         - A round is ended when only one player is playing. After a round ends all players (with cards left) will be playing again.
-      In this project, classes, methods, instances and objects were used to create this game. Note that the developed classes can be used in other card games. 
+      In this project, classes, methods, instances and objects were used to create this game. 
+      Note that the developed classes can be used in other card games. 
       * In next releases, the game would allow players to start and play rounds with pairs, three or four cards. 
       
-      
+Using SQL, I have done some queries from a database from w3schools:
+    - 
     
