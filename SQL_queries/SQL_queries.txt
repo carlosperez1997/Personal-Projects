@@ -1,0 +1,52 @@
+SQL queries 
+Database: https://www.w3schools.com/sql/trysql.asp?filename=trysql_select_all
+
+- Obtain a table with the employees that have sold more products.
+    - Table: EmployeeID Apellido Nombre Producto Quantity 
+SELECT E.EmployeeID, E.LastName, E.FirstName, SUM(OD.Quantity)
+FROM Products AS P, OrderDetails AS OD, Orders AS O, Employees AS E, Customers as C
+WHERE OD.ProductID = P.ProductID AND OD.OrderID = O.OrderID AND E.EmployeeID = O.EmployeeID AND C.CustomerID = O.CustomerID
+GROUP BY E.EmployeeID
+ORDER BY SUM(OD.Quantity) DESC
+-- LIMIT 1;
+
+
+- Obtain the top 5 products from the employee who sold more products.
+    - Table: EmployeeID Apellido Nombre Producto Quantity 
+-- EmployeeID = 4 -- EmployeeID obtained from previous query
+SELECT E.EmployeeID, E.LastName, E.FirstName, P.ProductName, SUM(OD.Quantity)
+FROM Products AS P, OrderDetails AS OD, Orders AS O, Employees AS E, Customers as C
+WHERE OD.ProductID = P.ProductID AND OD.OrderID = O.OrderID AND E.EmployeeID = O.EmployeeID AND C.CustomerID = O.CustomerID AND E.EmployeeID = 4
+GROUP BY P.ProductName
+ORDER BY SUM(OD.Quantity) DESC
+LIMIT 5;
+
+
+- Connect Suppliers with Customers in Germany.
+    - Table: SupplierID SupplierName CustomerID CustomerName
+
+SELECT S.SupplierID, S.SupplierName, C.CustomerID, C.CustomerName 
+FROM Customers as C, Suppliers AS S
+WHERE C.Country = S.Country AND C.Country = ‘Germany’
+ORDER BY S.SupplierID
+
+
+- Look for the most expensive order.
+    - Table: OrderID ProductName CustomerName Income Price Quantity
+
+SELECT O.OrderID, P.ProductName, C.CustomerName, MAX(P.Price*OD.Quantity) AS Income, P.Price, OD.Quantity
+FROM Orders as O, OrderDetails AS OD, Customers AS C, Products as P
+WHERE O.OrderID == OD.OrderID AND C.CustomerID == O.CustomerID AND OD.ProductID = P.ProductID
+--ORDER BY P.Price*OD.Quantity DESC
+
+
+- Money that each category generates in Germany.
+    - Table: CategoryName MoneyGenerated
+
+SELECT K.CategoryName, P.Price*OD.Quantity AS MoneyGenerated
+FROM Orders as O, OrderDetails AS OD, Customers AS C, Products as P, Categories as K
+WHERE O.OrderID == OD.OrderID AND C.CustomerID == O.CustomerID AND OD.ProductID = P.ProductID AND K.CategoryID == P.CategoryID AND C.Country == 'Germany'
+GROUP BY K.CategoryName
+ORDER BY MoneyGenerated DESC
+
+

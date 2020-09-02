@@ -179,7 +179,7 @@ def main():
     zeros = FoundZeros(array)
     n = len(zeros)
 
-    print('INICIO')
+    print('BEGIN')
 
     pp = 1
     if zeros == -1:
