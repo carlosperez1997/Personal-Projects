@@ -4,6 +4,7 @@ Hello,
 In this repository I wanted to share some personal projects I have developed to enhance my knowledge and skills in programming using different languages. 
 
 Using Python, I have developed the following projects:
+
     - Sudoku_Solver
       A program to solve sudokus was developed. The sudoku puzzle is entered as an input, and the solution is obtained after some calculations. 
       In this project, lists (forming matrices) and functions were implemented purposefully.
