@@ -2,7 +2,7 @@ SQL queries
 Database: https://www.w3schools.com/sql/trysql.asp?filename=trysql_select_all
 
 - Obtain a table with the employees that have sold more products.
-    - Table: EmployeeID Apellido Nombre Producto Quantity 
+	- Table: EmployeeID Apellido Nombre Producto Quantity 
 SELECT E.EmployeeID, E.LastName, E.FirstName, SUM(OD.Quantity)
 FROM Products AS P, OrderDetails AS OD, Orders AS O, Employees AS E, Customers as C
 WHERE OD.ProductID = P.ProductID AND OD.OrderID = O.OrderID AND E.EmployeeID = O.EmployeeID AND C.CustomerID = O.CustomerID
@@ -12,7 +12,7 @@ ORDER BY SUM(OD.Quantity) DESC
 
 
 - Obtain the top 5 products from the employee who sold more products.
-    - Table: EmployeeID Apellido Nombre Producto Quantity 
+	- Table: EmployeeID Apellido Nombre Producto Quantity 
 -- EmployeeID = 4 -- EmployeeID obtained from previous query
 SELECT E.EmployeeID, E.LastName, E.FirstName, P.ProductName, SUM(OD.Quantity)
 FROM Products AS P, OrderDetails AS OD, Orders AS O, Employees AS E, Customers as C
@@ -22,12 +22,12 @@ ORDER BY SUM(OD.Quantity) DESC
 LIMIT 5;
 
 
-- Connect Suppliers with Customers in Germany.
-    - Table: SupplierID SupplierName CustomerID CustomerName
+- Connect Customers with Suppliers that are from Germany or France.
+	- Table: SupplierID SupplierName CustomerID CustomerName
 
-SELECT S.SupplierID, S.SupplierName, C.CustomerID, C.CustomerName 
-FROM Customers as C, Suppliers AS S
-WHERE C.Country = S.Country AND C.Country = ‘Germany’
+SELECT C.CustomerID, C.CustomerName, S.SupplierID, S.SupplierName, S.Country
+FROM Customers as C 
+INNER JOIN Suppliers AS S ON S.Country IN ('Germany','France')
 ORDER BY S.SupplierID
 
 
@@ -40,13 +40,29 @@ WHERE O.OrderID == OD.OrderID AND C.CustomerID == O.CustomerID AND OD.ProductID 
 --ORDER BY P.Price*OD.Quantity DESC
 
 
-- Money that each category generates in Germany.
-    - Table: CategoryName MoneyGenerated
+- Money of each category generates in Germany (greater than 300).
+	- Table: CategoryName MoneyGenerated
 
 SELECT K.CategoryName, P.Price*OD.Quantity AS MoneyGenerated
 FROM Orders as O, OrderDetails AS OD, Customers AS C, Products as P, Categories as K
-WHERE O.OrderID == OD.OrderID AND C.CustomerID == O.CustomerID AND OD.ProductID = P.ProductID AND K.CategoryID == P.CategoryID AND C.Country == 'Germany'
+WHERE O.OrderID == OD.OrderID AND C.CustomerID == O.CustomerID AND OD.ProductID = P.ProductID AND K.CategoryID == P.CategoryID AND C.Country == 'Germany' AND MoneyGenerated > 300
 GROUP BY K.CategoryName
 ORDER BY MoneyGenerated DESC
+
+
+- List with the employees with the number of sales they made and their income they generated to the business.
+	- Table: EmployeeID, FirstName, LastName, Sales, Income
+
+SELECT Y.EmployeeID, E.FirstName, E.LastName, SUM(Y.Quantity) AS Sales, SUM(P.Price*Y.Quantity) AS Income
+FROM Employees AS E, Products as P
+LEFT JOIN (
+SELECT OD.Quantity, OD.ProductID, O.EmployeeID
+FROM OrderDetails AS OD, Orders AS O
+WHERE OD.OrderID = O.OrderID
+--GROUP BY O.EmployeeID
+) AS Y ON Y.EmployeeID = E.EmployeeID
+WHERE Y.EmployeeID = E.EmployeeID AND Y.ProductID = P.ProductID
+GROUP BY Y.EmployeeID
+
 
 
