@@ -1,5 +1,9 @@
-SQL queries 
+--------------------- SQL queries ---------------------
 Database: https://www.w3schools.com/sql/trysql.asp?filename=trysql_select_all
+Copy and paste the query in the field SQL statement in the web Database to see the result.
+Note that character ' could lead to error sometimes, so make sure to rewrite it correctly. 
+
+-------------------------------------------------------
 
 - Obtain a table with the employees that have sold more products.
 	- Table: EmployeeID Apellido Nombre Producto Quantity 
@@ -10,6 +14,7 @@ GROUP BY E.EmployeeID
 ORDER BY SUM(OD.Quantity) DESC
 -- LIMIT 1;
 
+-------------------------------------------------------
 
 - Obtain the top 5 products from the employee who sold more products.
 	- Table: EmployeeID Apellido Nombre Producto Quantity 
@@ -21,6 +26,7 @@ GROUP BY P.ProductName
 ORDER BY SUM(OD.Quantity) DESC
 LIMIT 5;
 
+-------------------------------------------------------
 
 - Connect Customers with Suppliers that are from Germany or France.
 	- Table: SupplierID SupplierName CustomerID CustomerName
@@ -30,6 +36,7 @@ FROM Customers as C
 INNER JOIN Suppliers AS S ON S.Country IN ('Germany','France')
 ORDER BY S.SupplierID
 
+-------------------------------------------------------
 
 - Look for the most expensive order.
     - Table: OrderID ProductName CustomerName Income Price Quantity
@@ -39,6 +46,7 @@ FROM Orders as O, OrderDetails AS OD, Customers AS C, Products as P
 WHERE O.OrderID == OD.OrderID AND C.CustomerID == O.CustomerID AND OD.ProductID = P.ProductID
 --ORDER BY P.Price*OD.Quantity DESC
 
+-------------------------------------------------------
 
 - Money of each category generates in Germany (greater than 300).
 	- Table: CategoryName MoneyGenerated
@@ -49,6 +57,7 @@ WHERE O.OrderID == OD.OrderID AND C.CustomerID == O.CustomerID AND OD.ProductID 
 GROUP BY K.CategoryName
 ORDER BY MoneyGenerated DESC
 
+-------------------------------------------------------
 
 - List with the employees with the number of sales they made and their income they generated to the business.
 	- Table: EmployeeID, FirstName, LastName, Sales, Income
@@ -64,5 +73,6 @@ WHERE OD.OrderID = O.OrderID
 WHERE Y.EmployeeID = E.EmployeeID AND Y.ProductID = P.ProductID
 GROUP BY Y.EmployeeID
 
+-------------------------------------------------------
 
 
