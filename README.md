@@ -1,11 +1,9 @@
 # Personal-Projects
 Hello,
 
-In this repository I wanted to share some personal projects I have developed to enhance my knowledge and skills in programming using different languages. 
+In this repository I wanted to share some personal projects I have developed to enhance my knowledge and Data Science skills with different projects. 
 
-Using Python, I have developed the following projects:
-
-* Netflix Viewing History EDA
+** Netflix Viewing History EDA
     
 The aim of this project is to see how my consumption on Netflix really is and to answer some questions throught the insights the data provides. The project has been developed in Python using the my personal Viewing History in Netflix. Webscraping has been used to get the TV shows and films durations (which do not appear in the file provided by Netflix).
 
