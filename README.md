@@ -4,7 +4,7 @@ My name is Carlos Pérez and I am an aerospace engineer at Universitat Politècn
 
 In this repository I wanted to share some personal projects I have developed to enhance my knowledge and DS, ML and AI skills with different projects. 
 
-# *Netflix Viewing History EDA*
+## *Netflix Viewing History EDA*
     
 The aim of this project is to see how my consumption on Netflix really has been during these years and to answer some questions throught the insights the data provides. The project has been developed in Python using the my personal Viewing History in Netflix. Webscraping has been used to get the TV shows and films durations (which do not appear in the file provided by Netflix).
 
