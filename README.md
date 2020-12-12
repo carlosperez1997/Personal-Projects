@@ -1,7 +1,8 @@
-# Personal-Projects
-Hello,
+# *Projects*
+Hello, 
+My name is Carlos Pérez and I am an aerospace engineer at Universitat Politècnica de Catalunya and also a budding Data Scientist enthusiast about Data Science, Machine Learning and Artificial Intelligence and the power they provide. 
 
-In this repository I wanted to share some personal projects I have developed to enhance my knowledge and Data Science skills with different projects. 
+In this repository I wanted to share some personal projects I have developed to enhance my knowledge and DS, ML and AI skills with different projects. 
 
 # *Netflix Viewing History EDA*
     
