@@ -1,0 +1,32 @@
+<!doctype html>
+<html>
+    <head>
+        <title>
+            Home page
+        </title>
+    </head>
+
+    <body>
+        <!-- Body of the webpage: 
+            - p indicates paragraph
+            - h1 heading 
+            - {& python code &} -->
+        <h1>  Home page! </h1>
+        <p>  Hello! </p>
+
+        <p> {{content_1}} </p>
+
+        {% for i in range(10): %}
+            {% if i % 2 == 1: %}
+                <p> {{i}} </p>
+            {% else: %}
+                <p> par </p>
+            {% endif %}
+        {% endfor %}
+
+        {% for i in content_2: %}
+            <p> {{i}} </p>
+        {% endfor %}
+        
+    </body>
+</html>
